@@ -1,0 +1,360 @@
+﻿@model MVC_ScoolMGT.Models.Teacher
+@{
+    ViewBag.Title = "Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<fieldset>
+    <legend>Add Student</legend>
+    @using (Html.BeginForm())
+    {
+        <table>
+            <tr>
+                <td>
+                    <b>FirstName</b>
+                </td>
+                <td>
+                    <input type="hidden" value="@ViewBag.Command" name="Command" />
+                    <input type="hidden" value="@Model.Id" name="Id" />
+                    @Html.TextBoxFor(m => m.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>LastName</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.LastName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Mother Name</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.MName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Father Name</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.FName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Gender</b>
+                </td>
+                <td>
+                    <select name="@Html.NameFor(m=>m.Gender)">
+                        <option>M</option>
+                        <option>F</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>DOB</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @value = string.Format("{0:yyyy-MM-dd}", Model.DOB) })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Mobile Number</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.MobileNo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Village</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Village)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Mandal</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Mandal)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>District</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.District)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Municipality</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Municipality)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Habitation</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Habitation)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>BloodGroup</b>
+                </td>
+                <td>
+                    <select name="@Html.NameFor(m=>m.BloodGroup)">
+                        <option>O+</option>
+                        <option>O-</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Caste</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Caste)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Religion</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Religion)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Mother Tongue</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.MotherTongue)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Adhar Number</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.AdharNo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Previous Institute Name</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.PInstituteName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Previous Identification Nubmer</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.PIdentificationNo)
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Previous Identification Nubmer</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.PIdentificationNo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>DOJ</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.DOJ, new { @id = "txtDOJ", @value = string.Format("{0:yyyy-MM-dd}", Model.DOB) })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>ClassNmae</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.ClassNmae)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Section</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Section)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Roll Number</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.RollNo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Admission Number</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.AdmissionNo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Academic Fee</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.AFee)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Hostel Fee</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.HFee)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Transport Fee</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.TFee)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Total Fee</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.TotalFee)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Email</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Email)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Qualification</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Qualification)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Experience</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Experience)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Designed</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Designed)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Work Type</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.WorkType)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Subject</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Subject)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Working Hour/Day</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.WorkHourPerDay)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Working Hour/Month</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.WorkHourPerMonth)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Photo</b>
+                </td>
+                <td>
+                    <input type="file" name="PhotoName" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit" />
+                </td>
+            </tr>
+        </table>
+    }
+</fieldset>
+
+<style>
+    .form-control {
+        width: 400px;
+        margin-bottom: 6px;
+    }
+
+    input {
+        margin-bottom: 6px;
+    }
+
+    table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<script>
+    $(function () {
+        $('#txtDOB').datepick({ dateFormat: 'yyyy-mm-dd' });
+        $('#txtDOJ').datepick({ dateFormat: 'yyyy-mm-dd' });
+    });
+</script>

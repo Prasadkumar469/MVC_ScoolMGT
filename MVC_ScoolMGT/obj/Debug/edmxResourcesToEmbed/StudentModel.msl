@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StudentModelStoreContainer" CdmEntityContainer="StudentEntities">
+    <EntitySetMapping Name="ClassNames">
+      <EntityTypeMapping TypeName="StudentModel.ClassName">
+        <MappingFragment StoreEntitySet="ClassNames">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClassName1" ColumnName="ClassName" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeesTypes">
+      <EntityTypeMapping TypeName="StudentModel.FeesType">
+        <MappingFragment StoreEntitySet="FeesType">
+          <ScalarProperty Name="Fees" ColumnName="Fees" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FeesName" ColumnName="FeesName" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mstroles">
+      <EntityTypeMapping TypeName="StudentModel.mstrole">
+        <MappingFragment StoreEntitySet="mstrole">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsInbuiltRole" ColumnName="IsInbuiltRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mstsiteactions">
+      <EntityTypeMapping TypeName="StudentModel.mstsiteaction">
+        <MappingFragment StoreEntitySet="mstsiteaction">
+          <ScalarProperty Name="SiteActionID" ColumnName="SiteActionID" />
+          <ScalarProperty Name="SiteActionName" ColumnName="SiteActionName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ParentSiteActionID" ColumnName="ParentSiteActionID" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="PageHelp" ColumnName="PageHelp" />
+          <ScalarProperty Name="SiteActionType" ColumnName="SiteActionType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mstroleaccesses">
+      <EntityTypeMapping TypeName="StudentModel.mstroleaccess">
+        <MappingFragment StoreEntitySet="mstroleaccess">
+          <ScalarProperty Name="SiteActionID" ColumnName="SiteActionID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetSiteActions" FunctionName="StudentModel.Store.GetSiteActions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StudentModel.GetSiteActions_Result">
+          <ScalarProperty Name="SiteActionID" ColumnName="SiteActionID" />
+          <ScalarProperty Name="SiteActionName" ColumnName="SiteActionName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="ParentSiteActionID" ColumnName="ParentSiteActionID" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="PageHelp" ColumnName="PageHelp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Fees">
+      <EntityTypeMapping TypeName="StudentModel.Fee">
+        <MappingFragment StoreEntitySet="Fees">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Fess" ColumnName="Fess" />
+          <ScalarProperty Name="FessType" ColumnName="FessType" />
+          <ScalarProperty Name="SId" ColumnName="SId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchoolUsers">
+      <EntityTypeMapping TypeName="StudentModel.SchoolUser">
+        <MappingFragment StoreEntitySet="SchoolUser">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="WorkHourPerMonth" ColumnName="WorkHourPerMonth" />
+          <ScalarProperty Name="WorkHourPerDay" ColumnName="WorkHourPerDay" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="WorkType" ColumnName="WorkType" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Designed" ColumnName="Designed" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="TotalFee" ColumnName="TotalFee" />
+          <ScalarProperty Name="TFee" ColumnName="TFee" />
+          <ScalarProperty Name="HFee" ColumnName="HFee" />
+          <ScalarProperty Name="AFee" ColumnName="AFee" />
+          <ScalarProperty Name="AdmissionNo" ColumnName="AdmissionNo" />
+          <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="ClassNmae" ColumnName="ClassNmae" />
+          <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+          <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+          <ScalarProperty Name="PIdentificationNo" ColumnName="PIdentificationNo" />
+          <ScalarProperty Name="PInstituteName" ColumnName="PInstituteName" />
+          <ScalarProperty Name="AdharNo" ColumnName="AdharNo" />
+          <ScalarProperty Name="MotherTongue" ColumnName="MotherTongue" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Caste" ColumnName="Caste" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="Habitation" ColumnName="Habitation" />
+          <ScalarProperty Name="Municipality" ColumnName="Municipality" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Mandal" ColumnName="Mandal" />
+          <ScalarProperty Name="Village" ColumnName="Village" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="MName" ColumnName="MName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

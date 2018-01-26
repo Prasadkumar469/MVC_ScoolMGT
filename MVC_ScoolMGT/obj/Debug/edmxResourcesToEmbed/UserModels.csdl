@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="UserEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="GetSiteActions" ReturnType="Collection(testModel.GetSiteActions_Result)">
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="ClassNames" EntityType="testModel.ClassName" />
+    <EntitySet Name="FeesTypes" EntityType="testModel.FeesType" />
+    <EntitySet Name="mstroles" EntityType="testModel.mstrole" />
+    <EntitySet Name="mstsiteactions" EntityType="testModel.mstsiteaction" />
+    <EntitySet Name="mstroleaccesses" EntityType="testModel.mstroleaccess" />
+  </EntityContainer>
+  <ComplexType Name="GetSiteActions_Result">
+    <Property Type="Int32" Name="SiteActionID" Nullable="false" />
+    <Property Type="String" Name="SiteActionName" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="TYPE" Nullable="false" MaxLength="1" />
+    <Property Type="Int32" Name="ParentSiteActionID" Nullable="true" />
+    <Property Type="String" Name="Url" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="Sequence" Nullable="false" />
+    <Property Type="String" Name="PageHelp" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <EntityType Name="ClassName">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassName1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="FeesType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FeesName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mstrole">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RoleDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsInbuiltRole" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mstsiteaction">
+    <Key>
+      <PropertyRef Name="SiteActionID" />
+    </Key>
+    <Property Name="SiteActionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SiteActionName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ParentSiteActionID" Type="Int32" />
+    <Property Name="URL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Sequence" Type="Int32" Nullable="false" />
+    <Property Name="PageHelp" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SiteActionType" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="mstroleaccess">
+    <Key>
+      <PropertyRef Name="SiteActionID" />
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="CreatedOn" />
+    </Key>
+    <Property Name="SiteActionID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

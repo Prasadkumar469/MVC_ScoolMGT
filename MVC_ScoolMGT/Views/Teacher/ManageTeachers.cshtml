@@ -1,0 +1,121 @@
+﻿@model MVC_ScoolMGT.Models.TeacherModel
+@{
+    ViewBag.Title = "ManageStudents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="border:1px solid green;padding:20px;">
+    <legend>Manage Student <a href="../Demo/Teacher" style="margin-left:50px;color:green;">Add Teacher</a> </legend>
+
+    @if (Model != null && Model.TecherList != null && Model.TecherList.Any())
+    {
+        <table id="teacherTable" class="display" cellspacing="0" style="width:auto;">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>First Name </th>
+                    <th>Last Name </th>
+                    <th>Mother Name </th>
+                    <th>Father Name </th>
+                    <th>Gender </th>
+                    <th>DOB </th>
+                    <th>Mobile Number </th>
+                    <th>Village </th>
+                    <th>Mandal </th>
+                    <th>District </th>
+                    <th>Municipality </th>
+                    <th>Habitation </th>
+                    <th>Blood Group </th>
+                    <th>Caste </th>
+                    <th>Religion </th>
+                    <th>Mother Tongue </th>
+                    <th>Adhar No </th>
+                    <th>Previous Institute Name </th>
+                    <th>Previous Identification No </th>
+                    <th>PhotoName </th>
+                    <th>DOJ </th>
+                    <th>ClassNmae </th>
+                    <th>Section </th>
+                    <th>RollNo </th>
+                    <th>AdmissionNo </th>
+                    <th>Academic Fee </th>
+                    <th>Hostel Fee </th>
+                    <th>Transport Fee </th>
+                    <th>Total Fee </th>
+                    <th>Email </th>
+                    <th>Qualification</th>
+                    <th>Experience</th>
+                    <th>Designed</th>
+                    <th>Subject</th>
+                    <th>Work Type</th>
+                    <th>Working Hour/Day</th>
+                    <th>Working Hour/Month</th> 
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.StudentList)
+                {
+                    <tr>
+                        <td>
+                            <a href="@Url.Action("EditStudent", new { @id = student.Id })">Edit</a>
+                            <a href="@Url.Action("DeleteStudent", new { @id=student.Id})">Delete</a>
+                        </td>
+                        <td>@student.FirstName </td>
+                        <td>@student.LastName </td>
+                        <td>@student.MName </td>
+                        <td>@student.FName </td>
+                        <td>@student.Gender </td>
+                        <td>@string.Format("{0:yyyy-MM-dd}", student.DOB) </td>
+                        <td>@student.MobileNo </td>
+                        <td>@student.Village </td>
+                        <td>@student.Mandal </td>
+                        <td>@student.District </td>
+                        <td>@student.Municipality </td>
+                        <td>@student.Habitation </td>
+                        <td>@student.BloodGroup </td>
+                        <td>@student.Caste </td>
+                        <td>@student.Religion </td>
+                        <td>@student.MotherTongue </td>
+                        <td>@student.AdharNo </td>
+                        <td>@student.PInstituteName </td>
+                        <td>@student.PIdentificationNo </td>
+                        <td>@student.PhotoName </td>
+                        <td>@string.Format("{0:yyyy-MM-dd}", student.DOJ) </td>
+                        <td>@student.ClassNmae </td>
+                        <td>@student.Section </td>
+                        <td>@student.RollNo </td>
+                        <td>@student.AdmissionNo </td>
+                        <td>@student.AFee </td>
+                        <td>@student.HFee </td>
+                        <td>@student.TFee </td>
+                        <td>@student.TotalFee </td>
+                        <td>@student.Email </td>
+                        <td>@student.Qualification </td>
+                        <td>@student.Experience</td>
+                        <td>@student.Designed</td>
+                        <td>@student.Subject</td>
+                        <td>@student.WorkType</td>
+                        <td>@student.WorkHourPerDay</td>
+                        <td>@student.WorkHourPerMonth</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+
+</div>
+<script>
+
+    $(document).ready(function () {
+        $('#teacherTable').DataTable({
+            "scrollX": true
+        }).columns.adjust();
+
+    });
+</script>
+
+<style>
+
+</style>

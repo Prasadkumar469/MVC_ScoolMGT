@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ClassNames">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassName" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="FeesType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FeesName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="mstrole">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="200" />
+    <Property Name="RoleDescription" Type="varchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsInbuiltRole" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'test.dbo.mstroleaccess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="mstroleaccess">
+    <Key>
+      <PropertyRef Name="SiteActionID" />
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="CreatedOn" />
+    </Key>
+    <Property Name="SiteActionID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="mstsiteaction">
+    <Key>
+      <PropertyRef Name="SiteActionID" />
+    </Key>
+    <Property Name="SiteActionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteActionName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Type" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ParentSiteActionID" Type="int" />
+    <Property Name="URL" Type="varchar" MaxLength="255" />
+    <Property Name="Sequence" Type="int" Nullable="false" />
+    <Property Name="PageHelp" Type="varchar" MaxLength="255" />
+    <Property Name="SiteActionType" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="GetSiteActions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="testModelStoreContainer">
+    <EntitySet Name="ClassNames" EntityType="Self.ClassNames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeesType" EntityType="Self.FeesType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mstrole" EntityType="Self.mstrole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mstsiteaction" EntityType="Self.mstsiteaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mstroleaccess" EntityType="Self.mstroleaccess" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [mstroleaccess].[SiteActionID] AS [SiteActionID], 
+    [mstroleaccess].[RoleID] AS [RoleID], 
+    [mstroleaccess].[CreatedBy] AS [CreatedBy], 
+    [mstroleaccess].[CreatedOn] AS [CreatedOn], 
+    [mstroleaccess].[UpdatedBy] AS [UpdatedBy], 
+    [mstroleaccess].[UpdatedOn] AS [UpdatedOn]
+    FROM [dbo].[mstroleaccess] AS [mstroleaccess]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

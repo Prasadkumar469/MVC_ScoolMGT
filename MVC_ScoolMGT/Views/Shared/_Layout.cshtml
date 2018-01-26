@@ -1,0 +1,49 @@
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="~/Content/CSS/jquery.datepick.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="~/Content/CSS/StyleSheet1.css" rel="stylesheet" />
+<script src="~/Content/js/jquery.plugin.min.js"></script>
+<script src="~/Content/js/jquery.datepick.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<div>
+    @{Html.RenderAction("Menu", "Demo");}
+</div>
+
+<div class="main">
+  @RenderBody()
+</div>
+
+
+
+
+<script>
+    function htmlbodyHeightUpdate() {
+        var height3 = $(window).height()
+        var height1 = $('.nav').height() + 50
+        height2 = $('.main').height()
+        if (height2 > height3) {
+            $('html').height(Math.max(height1, height3, height2) + 10);
+            $('body').height(Math.max(height1, height3, height2) + 10);
+        }
+        else {
+            $('html').height(Math.max(height1, height3, height2));
+            $('body').height(Math.max(height1, height3, height2));
+        }
+
+    }
+    $(document).ready(function () {
+        htmlbodyHeightUpdate()
+        $(window).resize(function () {
+            htmlbodyHeightUpdate()
+        });
+        $(window).scroll(function () {
+            height2 = $('.main').height()
+            htmlbodyHeightUpdate()
+        });
+    });
+
+   
+</script>

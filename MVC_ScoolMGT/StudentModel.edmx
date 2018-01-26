@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StudentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClassNames">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Fees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SId" Type="int" />
+          <Property Name="FessType" Type="int" />
+          <Property Name="Fess" Type="varchar" MaxLength="10" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="FeesType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FeesName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Fees" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="mstrole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="200" />
+          <Property Name="RoleDescription" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="IsInbuiltRole" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'test.dbo.mstroleaccess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mstroleaccess">
+          <Key>
+            <PropertyRef Name="SiteActionID" />
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="CreatedOn" />
+          </Key>
+          <Property Name="SiteActionID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="mstsiteaction">
+          <Key>
+            <PropertyRef Name="SiteActionID" />
+          </Key>
+          <Property Name="SiteActionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteActionName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Type" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ParentSiteActionID" Type="int" />
+          <Property Name="URL" Type="varchar" MaxLength="255" />
+          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="PageHelp" Type="varchar" MaxLength="255" />
+          <Property Name="SiteActionType" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SchoolUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="MName" Type="varchar" MaxLength="100" />
+          <Property Name="FName" Type="varchar" MaxLength="100" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="10" />
+          <Property Name="Village" Type="varchar" MaxLength="100" />
+          <Property Name="Mandal" Type="varchar" MaxLength="100" />
+          <Property Name="District" Type="varchar" MaxLength="100" />
+          <Property Name="Municipality" Type="varchar" MaxLength="100" />
+          <Property Name="Habitation" Type="varchar" MaxLength="100" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="20" />
+          <Property Name="Caste" Type="varchar" MaxLength="100" />
+          <Property Name="Religion" Type="varchar" MaxLength="100" />
+          <Property Name="MotherTongue" Type="varchar" MaxLength="100" />
+          <Property Name="AdharNo" Type="varchar" MaxLength="20" />
+          <Property Name="PInstituteName" Type="varchar" MaxLength="100" />
+          <Property Name="PIdentificationNo" Type="varchar" MaxLength="100" />
+          <Property Name="PhotoName" Type="varchar" MaxLength="100" />
+          <Property Name="DOJ" Type="datetime" />
+          <Property Name="ClassNmae" Type="varchar" MaxLength="100" />
+          <Property Name="Section" Type="varchar" MaxLength="100" />
+          <Property Name="RollNo" Type="varchar" MaxLength="100" />
+          <Property Name="AdmissionNo" Type="varchar" MaxLength="100" />
+          <Property Name="AFee" Type="varchar" MaxLength="100" />
+          <Property Name="HFee" Type="varchar" MaxLength="100" />
+          <Property Name="TFee" Type="varchar" MaxLength="100" />
+          <Property Name="TotalFee" Type="varchar" MaxLength="100" />
+          <Property Name="Experience" Type="varchar" MaxLength="100" />
+          <Property Name="Qualification" Type="varchar" MaxLength="100" />
+          <Property Name="Designed" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="WorkType" Type="varchar" MaxLength="100" />
+          <Property Name="Subject" Type="varchar" MaxLength="100" />
+          <Property Name="WorkHourPerDay" Type="varchar" MaxLength="100" />
+          <Property Name="WorkHourPerMonth" Type="varchar" MaxLength="100" />
+          <Property Name="Salary" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="RoleId" Type="int" />
+        </EntityType>
+        <Function Name="GetSiteActions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleId" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="StudentModelStoreContainer">
+          <EntitySet Name="ClassNames" EntityType="Self.ClassNames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fees" EntityType="Self.Fees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeesType" EntityType="Self.FeesType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mstrole" EntityType="Self.mstrole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mstsiteaction" EntityType="Self.mstsiteaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolUser" EntityType="Self.SchoolUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mstroleaccess" EntityType="Self.mstroleaccess" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mstroleaccess].[SiteActionID] AS [SiteActionID], 
+    [mstroleaccess].[RoleID] AS [RoleID], 
+    [mstroleaccess].[CreatedBy] AS [CreatedBy], 
+    [mstroleaccess].[CreatedOn] AS [CreatedOn], 
+    [mstroleaccess].[UpdatedBy] AS [UpdatedBy], 
+    [mstroleaccess].[UpdatedOn] AS [UpdatedOn]
+    FROM [dbo].[mstroleaccess] AS [mstroleaccess]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClassName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="FeesType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FeesName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Fees" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mstrole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RoleDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsInbuiltRole" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="mstsiteaction">
+          <Key>
+            <PropertyRef Name="SiteActionID" />
+          </Key>
+          <Property Name="SiteActionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteActionName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ParentSiteActionID" Type="Int32" />
+          <Property Name="URL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Sequence" Type="Int32" Nullable="false" />
+          <Property Name="PageHelp" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SiteActionType" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mstroleaccess">
+          <Key>
+            <PropertyRef Name="SiteActionID" />
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="CreatedOn" />
+          </Key>
+          <Property Name="SiteActionID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="StudentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClassNames" EntityType="Self.ClassName" />
+          <EntitySet Name="FeesTypes" EntityType="Self.FeesType" />
+          <EntitySet Name="mstroles" EntityType="Self.mstrole" />
+          <EntitySet Name="mstsiteactions" EntityType="Self.mstsiteaction" />
+          <EntitySet Name="mstroleaccesses" EntityType="Self.mstroleaccess" />
+          <FunctionImport Name="GetSiteActions" ReturnType="Collection(StudentModel.GetSiteActions_Result)">
+          <Parameter Name="RoleId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Fees" EntityType="StudentModel.Fee" />
+          <EntitySet Name="SchoolUsers" EntityType="StudentModel.SchoolUser" />
+        </EntityContainer>
+        <ComplexType Name="GetSiteActions_Result">
+          <Property Type="Int32" Name="SiteActionID" Nullable="false" />
+          <Property Type="String" Name="SiteActionName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="TYPE" Nullable="false" MaxLength="1" />
+          <Property Type="Int32" Name="ParentSiteActionID" Nullable="true" />
+          <Property Type="String" Name="Url" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" />
+          <Property Type="String" Name="PageHelp" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <EntityType Name="Fee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SId" Type="Int32" />
+          <Property Name="FessType" Type="Int32" />
+          <Property Name="Fess" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="100" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SchoolUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="MobileNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Village" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mandal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Municipality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Habitation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BloodGroup" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Caste" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MotherTongue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdharNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PInstituteName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PIdentificationNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOJ" Type="DateTime" Precision="3" />
+          <Property Name="ClassNmae" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Section" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RollNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdmissionNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AFee" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HFee" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TFee" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TotalFee" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Qualification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Designed" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorkType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorkHourPerDay" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorkHourPerMonth" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RoleId" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StudentModelStoreContainer" CdmEntityContainer="StudentEntities">
+          <EntitySetMapping Name="ClassNames">
+            <EntityTypeMapping TypeName="StudentModel.ClassName">
+              <MappingFragment StoreEntitySet="ClassNames">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClassName1" ColumnName="ClassName" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeesTypes">
+            <EntityTypeMapping TypeName="StudentModel.FeesType">
+              <MappingFragment StoreEntitySet="FeesType">
+                <ScalarProperty Name="Fees" ColumnName="Fees" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FeesName" ColumnName="FeesName" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mstroles">
+            <EntityTypeMapping TypeName="StudentModel.mstrole">
+              <MappingFragment StoreEntitySet="mstrole">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsInbuiltRole" ColumnName="IsInbuiltRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mstsiteactions">
+            <EntityTypeMapping TypeName="StudentModel.mstsiteaction">
+              <MappingFragment StoreEntitySet="mstsiteaction">
+                <ScalarProperty Name="SiteActionID" ColumnName="SiteActionID" />
+                <ScalarProperty Name="SiteActionName" ColumnName="SiteActionName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ParentSiteActionID" ColumnName="ParentSiteActionID" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="PageHelp" ColumnName="PageHelp" />
+                <ScalarProperty Name="SiteActionType" ColumnName="SiteActionType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mstroleaccesses">
+            <EntityTypeMapping TypeName="StudentModel.mstroleaccess">
+              <MappingFragment StoreEntitySet="mstroleaccess">
+                <ScalarProperty Name="SiteActionID" ColumnName="SiteActionID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetSiteActions" FunctionName="StudentModel.Store.GetSiteActions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StudentModel.GetSiteActions_Result">
+                <ScalarProperty Name="SiteActionID" ColumnName="SiteActionID" />
+                <ScalarProperty Name="SiteActionName" ColumnName="SiteActionName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="ParentSiteActionID" ColumnName="ParentSiteActionID" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="PageHelp" ColumnName="PageHelp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Fees">
+            <EntityTypeMapping TypeName="StudentModel.Fee">
+              <MappingFragment StoreEntitySet="Fees">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Fess" ColumnName="Fess" />
+                <ScalarProperty Name="FessType" ColumnName="FessType" />
+                <ScalarProperty Name="SId" ColumnName="SId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolUsers">
+            <EntityTypeMapping TypeName="StudentModel.SchoolUser">
+              <MappingFragment StoreEntitySet="SchoolUser">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="WorkHourPerMonth" ColumnName="WorkHourPerMonth" />
+                <ScalarProperty Name="WorkHourPerDay" ColumnName="WorkHourPerDay" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="WorkType" ColumnName="WorkType" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Designed" ColumnName="Designed" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="TotalFee" ColumnName="TotalFee" />
+                <ScalarProperty Name="TFee" ColumnName="TFee" />
+                <ScalarProperty Name="HFee" ColumnName="HFee" />
+                <ScalarProperty Name="AFee" ColumnName="AFee" />
+                <ScalarProperty Name="AdmissionNo" ColumnName="AdmissionNo" />
+                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="ClassNmae" ColumnName="ClassNmae" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="PIdentificationNo" ColumnName="PIdentificationNo" />
+                <ScalarProperty Name="PInstituteName" ColumnName="PInstituteName" />
+                <ScalarProperty Name="AdharNo" ColumnName="AdharNo" />
+                <ScalarProperty Name="MotherTongue" ColumnName="MotherTongue" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Caste" ColumnName="Caste" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="Habitation" ColumnName="Habitation" />
+                <ScalarProperty Name="Municipality" ColumnName="Municipality" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Mandal" ColumnName="Mandal" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
