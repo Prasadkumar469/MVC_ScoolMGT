@@ -31,7 +31,7 @@ namespace MVC_ScoolMGT.Controllers
             var db = new StudentEntities();
             if (command == "ADD")
             {
-                teacherEntity.RoleId = 1;
+                teacherEntity.RoleId = 2;
                 teacherEntity.CreatedOn = DateTime.Now;
                 teacherEntity.IsActive = true;
             }
@@ -102,7 +102,7 @@ namespace MVC_ScoolMGT.Controllers
             var db = new StudentEntities();
             List<Teacher> teachers = null;
             teachers = (from teacher in db.SchoolUsers
-                        where teacher.IsActive == true
+                        where teacher.IsActive == true && teacher.RoleId==2
                         select new Teacher
                         {
                             Id = teacher.Id,

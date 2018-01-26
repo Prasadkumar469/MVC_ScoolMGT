@@ -109,7 +109,7 @@ namespace MVC_ScoolMGT.Controllers
             var db = new StudentEntities();
             List<Student> students = null;
             students = (from student in db.SchoolUsers
-                        where student.IsActive == true
+                        where student.IsActive == true && student.RoleId==1
                         select new Student
                         {
                             Id = student.Id,

@@ -6,7 +6,7 @@
 
 
 <div style="border:1px solid green;padding:20px;">
-    <legend>Manage teacher <a href="../Demo/Teacher" style="margin-left:50px;color:green;">Add Teacher</a> </legend>
+    <legend>Manage teacher <a href="../Teacher/Teacher" style="margin-left:50px;color:green;">Add Teacher</a> </legend>
 
     @if (Model != null && Model.TeacherList != null && Model.TeacherList.Any())
     {
@@ -58,8 +58,8 @@
                 {
                     <tr>
                         <td>
-                            <a href="@Url.Action("EditStudent", new { @id = teacher.Id })">Edit</a>
-                            <a href="@Url.Action("DeleteStudent", new { @id=teacher.Id})">Delete</a>
+                            <a href="@Url.Action("EditTeacher", new { @id = teacher.Id })">Edit</a>
+                            <a href="@Url.Action("DeleteTeacher", new { @id = teacher.Id })">Delete</a>
                         </td>
                         <td>@teacher.FirstName </td>
                         <td>@teacher.LastName </td>
