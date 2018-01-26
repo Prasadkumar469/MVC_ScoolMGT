@@ -6,9 +6,9 @@
 
 
 <div style="border:1px solid green;padding:20px;">
-    <legend>Manage Student <a href="../Demo/Teacher" style="margin-left:50px;color:green;">Add Teacher</a> </legend>
+    <legend>Manage teacher <a href="../Demo/Teacher" style="margin-left:50px;color:green;">Add Teacher</a> </legend>
 
-    @if (Model != null && Model.TecherList != null && Model.TecherList.Any())
+    @if (Model != null && Model.TeacherList != null && Model.TeacherList.Any())
     {
         <table id="teacherTable" class="display" cellspacing="0" style="width:auto;">
             <thead>
@@ -54,50 +54,53 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var student in Model.StudentList)
+                @foreach (var teacher in Model.TeacherList)
                 {
                     <tr>
                         <td>
-                            <a href="@Url.Action("EditStudent", new { @id = student.Id })">Edit</a>
-                            <a href="@Url.Action("DeleteStudent", new { @id=student.Id})">Delete</a>
+                            <a href="@Url.Action("EditStudent", new { @id = teacher.Id })">Edit</a>
+                            <a href="@Url.Action("DeleteStudent", new { @id=teacher.Id})">Delete</a>
                         </td>
-                        <td>@student.FirstName </td>
-                        <td>@student.LastName </td>
-                        <td>@student.MName </td>
-                        <td>@student.FName </td>
-                        <td>@student.Gender </td>
-                        <td>@string.Format("{0:yyyy-MM-dd}", student.DOB) </td>
-                        <td>@student.MobileNo </td>
-                        <td>@student.Village </td>
-                        <td>@student.Mandal </td>
-                        <td>@student.District </td>
-                        <td>@student.Municipality </td>
-                        <td>@student.Habitation </td>
-                        <td>@student.BloodGroup </td>
-                        <td>@student.Caste </td>
-                        <td>@student.Religion </td>
-                        <td>@student.MotherTongue </td>
-                        <td>@student.AdharNo </td>
-                        <td>@student.PInstituteName </td>
-                        <td>@student.PIdentificationNo </td>
-                        <td>@student.PhotoName </td>
-                        <td>@string.Format("{0:yyyy-MM-dd}", student.DOJ) </td>
-                        <td>@student.ClassNmae </td>
-                        <td>@student.Section </td>
-                        <td>@student.RollNo </td>
-                        <td>@student.AdmissionNo </td>
-                        <td>@student.AFee </td>
-                        <td>@student.HFee </td>
-                        <td>@student.TFee </td>
-                        <td>@student.TotalFee </td>
-                        <td>@student.Email </td>
-                        <td>@student.Qualification </td>
-                        <td>@student.Experience</td>
-                        <td>@student.Designed</td>
-                        <td>@student.Subject</td>
-                        <td>@student.WorkType</td>
-                        <td>@student.WorkHourPerDay</td>
-                        <td>@student.WorkHourPerMonth</td>
+                        <td>@teacher.FirstName </td>
+                        <td>@teacher.LastName </td>
+                        <td>@teacher.MName </td>
+                        <td>@teacher.FName </td>
+                        <td>@teacher.Gender </td>
+                        <td>@string.Format("{0:yyyy-MM-dd}", teacher.DOB) </td>
+                        <td>@teacher.MobileNo </td>
+                        <td>@teacher.Village </td>
+                        <td>@teacher.Mandal </td>
+                        <td>@teacher.District </td>
+                        <td>@teacher.Municipality </td>
+                        <td>@teacher.Habitation </td>
+                        <td>@teacher.BloodGroup </td>
+                        <td>@teacher.Caste </td>
+                        <td>@teacher.Religion </td>
+                        <td>@teacher.MotherTongue </td>
+                        <td>@teacher.AdharNo </td>
+                        <td>@teacher.PInstituteName </td>
+                        <td>@teacher.PIdentificationNo </td>
+                        <td>@teacher.PhotoName </td>
+                        <td>@string.Format("{0:yyyy-MM-dd}", teacher.DOJ) </td>
+                        <td>@teacher.ClassNmae </td>
+                        <td>@teacher.Section </td>
+                        <td>@teacher.RollNo </td>
+                        <td>@teacher.AdmissionNo </td>
+                        <td>@teacher.AFee </td>
+                        <td>@teacher.HFee </td>
+                        <td>@teacher.TFee </td>
+                        <td>@teacher.TotalFee </td>
+                        <td>@teacher.Email </td>
+                        <td>@teacher.Qualification </td>
+                        <td>@teacher.Experience</td>
+                        <td>@teacher.Designed</td>
+                        <td>@teacher.Subject</td>
+                        <td>@teacher.WorkType</td>
+                        <td>@teacher.WorkHourPerDay</td>
+                        <td>@teacher.WorkHourPerMonth</td>
+
+
+
                     </tr>
                 }
             </tbody>
